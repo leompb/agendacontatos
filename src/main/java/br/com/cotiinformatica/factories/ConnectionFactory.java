@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class ConnectionFactory {
 
 	// atributos:
-	private final static String HOST = "jdbc:postgresql://localhost:5433/";
+	private final static String HOST = "jdbc:postgresql://localhost:5433/bd_agenda";
 	private final static String USER = "postgres";
 	private final static String PASS = "coti";
 	private final static String DRIVER = "org.postgresql.Driver";
