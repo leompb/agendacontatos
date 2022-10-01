@@ -24,6 +24,20 @@ public class UsuarioRepository {
 		connection.close();
 	}
 
+	public void update(Integer idUsuario, String novaSenha) throws Exception {
+
+		Connection connection = ConnectionFactory.createConnection();
+
+		PreparedStatement statement = connection
+				.prepareStatement("UPDATE USUARIO SET SENHA = MD5(?) WHERE IDUSUARIO = ?");
+
+		statement.setString(1, novaSenha);
+		statement.setInt(2, idUsuario);
+		statement.execute();
+
+		connection.close();
+	}
+
 	public Usuario findByEmail(String email) throws Exception {
 
 		Connection connection = ConnectionFactory.createConnection();
@@ -43,13 +57,13 @@ public class UsuarioRepository {
 			usuario.setNome(resultSet.getString("NOME"));
 			usuario.setEmail(resultSet.getString("EMAIL"));
 			usuario.setSenha(resultSet.getString("SENHA"));
-			
+
 		}
 
 		connection.close();
 		return usuario;
 	}
-	
+
 	public Usuario findByEmailAndSenha(String email, String senha) throws Exception {
 
 		Connection connection = ConnectionFactory.createConnection();
@@ -71,17 +85,11 @@ public class UsuarioRepository {
 			usuario.setNome(resultSet.getString("NOME"));
 			usuario.setEmail(resultSet.getString("EMAIL"));
 			usuario.setSenha(resultSet.getString("SENHA"));
-			
+
 		}
 
 		connection.close();
 		return usuario;
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

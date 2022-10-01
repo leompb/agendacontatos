@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <html>
 	<head>
 	
@@ -5,10 +8,10 @@
 	
 		<title>Recuperar Senha</title>
 			
-		<!-- link para os arquivos de extens„o .CSS -->
+		<!-- link para os arquivos de extens√£o .CSS -->
 		<link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"/>	
 		
-		<!-- estilos para a validaÁ„o -->
+		<!-- estilos para a valida√ß√£o -->
 		<style>
 			label.error { color: #d9534f; }
 			input.error { border: 2px solid #d9534f; }
@@ -27,7 +30,7 @@
 							<hr/>
 						</div>
 						
-						<form id="form_password" action="password-user">
+						<form id="form_password" action="password-user" method="post">
 							
 							<div class="mb-3">
 								<label>Informe seu email de acesso:</label>
@@ -63,7 +66,7 @@
 			</div>
 		</div>
 		
-		<!-- link para os arquivos de extens„o JS -->
+		<!-- link para os arquivos de extens√£o JS -->
 		<script src="resources/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 		<script src="resources/js/jquery-3.6.1.min.js" type="text/javascript"></script>
 		<script src="resources/js/jquery.validate.min.js" type="text/javascript"></script>
@@ -72,10 +75,10 @@
 		
 		<script>
 		
-			//funÁ„o para inicializaÁ„o do JQuery
+			//fun√ß√£o para inicializa√ß√£o do JQuery
 			$(document).ready(function() {
 				
-				//configurando a validaÁ„o do formul·rio
+				//configurando a valida√ß√£o do formul√°rio
 				$("#form_password").validate({
 					rules: {
 						"email" : { required: true, email : true }
@@ -87,5 +90,6 @@
 		</script>
 		
 	</body>
-
 </html>
+
+
