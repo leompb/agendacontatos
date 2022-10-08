@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
 <html>
 <head>
 
-<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
 
-<title>RelatÃ³rio de Contatos</title>
+<title>Relatório de Contatos</title>
 
-<!-- link para os arquivos de extensÃ£o .CSS -->
+<!-- link para os arquivos de extensão .CSS -->
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css"
 	type="text/css" />
 
@@ -20,13 +20,13 @@
 
 	<div class="container mt-4">
 
-		<h3>RelatÃ³rio de Contatos</h3>
-		<p>Utilize o formulÃ¡rio para gerar o relatÃ³rio.</p>
+		<h3>Relatório de Contatos</h3>
+		<p>Utilize o formulário para gerar o relatório.</p>
 		<hr />
 
 	</div>
 
-	<!-- link para os arquivos de extensÃ£o JS -->
+	<!-- link para os arquivos de extensão JS -->
 	<script src="../resources/js/bootstrap.bundle.min.js"
 		type="text/javascript"></script>
 

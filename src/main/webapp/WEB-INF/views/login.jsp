@@ -2,7 +2,7 @@
 
 	<head>
 	
-		<meta charset="UTF-8">
+		<meta charset="ISO-8859-1">
 		
 		<title>Acessar Conta</title>
 			

@@ -39,7 +39,20 @@ public class ContatoRepository {
 		statement.setString(2, contato.getEmail());
 		statement.setString(3, contato.getTelefone());
 		statement.setInt(4, contato.getIdContato());
+		statement.execute();
 
+		connection.close();
+	}
+
+	public void delete(Contato contato) throws Exception {
+
+		Connection connection = ConnectionFactory.createConnection();
+
+		PreparedStatement statement = connection.prepareStatement("delete from contato where idcontato=?");
+		statement.setInt(1, contato.getIdContato());
+		statement.execute();
+
+		// fechando a conexão
 		connection.close();
 	}
 
@@ -50,7 +63,7 @@ public class ContatoRepository {
 		Connection connection = ConnectionFactory.createConnection();
 
 		// executar o comando SQL
-		PreparedStatement statement = connection.prepareStatement("select * from contato where idusuario = ?");
+		PreparedStatement statement = connection.prepareStatement("select * from contato where idusuario = ? order by nome");
 		statement.setInt(1, idUsuario);
 		ResultSet resultSet = statement.executeQuery();
 
@@ -75,6 +88,37 @@ public class ContatoRepository {
 
 		// retornando a lista
 		return lista;
+	}
+
+	// método para consultar 1 contato de um usuário através do id
+	public Contato findById(Integer idContato, Integer idUsuario) throws Exception {
+
+		// abrindo conexão com o banco de dados
+		Connection connection = ConnectionFactory.createConnection();
+
+		// executando um comando SQL
+		PreparedStatement statement = connection
+				.prepareStatement("select * from contato where idcontato=? and idusuario=?");
+		statement.setInt(1, idContato);
+		statement.setInt(2, idUsuario);
+		ResultSet resultSet = statement.executeQuery();
+
+		Contato contato = null;
+
+		// verificar se algum registro foi encontrado
+		if (resultSet.next()) {
+
+			contato = new Contato();
+
+			contato.setIdContato(resultSet.getInt("idcontato"));
+			contato.setNome(resultSet.getString("nome"));
+			contato.setEmail(resultSet.getString("email"));
+			contato.setTelefone(resultSet.getString("telefone"));
+		}
+
+		// fechando conexão com o banco de dados
+		connection.close();
+		return contato;
 	}
 
 }
